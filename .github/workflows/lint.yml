@@ -2,8 +2,12 @@ name: Linter
 
 on: [push, pull_request, workflow_dispatch]
 
+permissions:
+  contents: write
+
 jobs:
   lint:
+    name: Run Linters
     runs-on: ubuntu-latest
 
     steps:
@@ -30,3 +34,4 @@ jobs:
           xo: false
           auto_fix: true
           commit: true
+``
