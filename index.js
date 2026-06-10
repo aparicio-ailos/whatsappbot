@@ -137,18 +137,16 @@ client.on('auth_failure', message =>
   console.error('❌ Authentication failure:', message)
 );
 const NUMERO_BLOQUEADO = '5547984400667@c.us';
-client.on('message', async (message) => {
-  
-      console.log(`❌ xxxxxx`);
-    try {
-      if(message.author === NUMERO_BLOQUEADO ){
+client.on('message', async message => {
+  console.log(`❌ xxxxxx`);
+  try {
+    if (message.author === NUMERO_BLOQUEADO) {
       await message.delete(false);
       console.log(`❌ delete`);
     }
-    } catch (error) {
-      console.error(`❌ Error executing ${command}:`, error);
-    }
-  
+  } catch (error) {
+    console.error(`❌ Error executing ${command}:`, error);
+  }
 });
 
 // Command handler
