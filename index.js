@@ -139,6 +139,7 @@ client.on('auth_failure', message =>
 const NUMERO_BLOQUEADO = '5547984400667@c.us';
 client.on('message', async (message) => {
   
+      console.log(`❌ xxxxxx`);
     try {
       if(message.author === NUMERO_BLOQUEADO ){
       await message.delete(false);
