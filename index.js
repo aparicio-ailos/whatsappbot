@@ -23,9 +23,9 @@ console.log('✅ Connected to MongoDB');
 const store = new MongoStore({ mongoose });
 const client = new Client({
   authStrategy: new RemoteAuth({
-    store:store,
-    clientId:'whatsapp-boot-main',
-    backupSyncIntervalMs: 300_000, 
+    store: store,
+    clientId: 'whatsapp-boot-main',
+    backupSyncIntervalMs: 300_000,
   }),
   puppeteer: {
     headless: true,
