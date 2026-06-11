@@ -8,18 +8,25 @@ import { MongoStore } from 'wwebjs-mongo';
 import puppeteer from 'puppeteer';
 import dotenv from 'dotenv';
 import { startCountdown } from './newaction.js';
+
 const { Client, RemoteAuth } = pkg;
 dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
 await mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 console.log('✅ Connected to MongoDB');
+
 const store = new MongoStore({ mongoose });
 const client = new Client({
-  authStrategy: new RemoteAuth({ store, backupSyncIntervalMs: 300_000 }),
+  authStrategy: new RemoteAuth({
+    store:store,
+    clientId:'whatsapp-boot-main',
+    backupSyncIntervalMs: 300_000, 
+  }),
   puppeteer: {
     headless: true,
     executablePath: puppeteer.executablePath(),
